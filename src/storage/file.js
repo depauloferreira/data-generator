@@ -1,9 +1,8 @@
 import fs from 'node:fs'
 
-export function getStorage(path, erase = true) {
+export function fileStorage(path, erase = true) {
 
     if (erase) {
-
         fs.writeFileSync(path, '', { flags: 'w' })
     }
 
