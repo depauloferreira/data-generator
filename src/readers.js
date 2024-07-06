@@ -4,7 +4,7 @@ import { Stream } from "node:stream";
 
 import { HWM } from "./constants.js";
 
-const companiesFileStream = fs.createReadStream("./data/company.txt");
+const companiesFileStream = fs.createReadStream("data/company.txt");
 
 export function getCompanyReader() {
     const lr = readline.Interface({ input: companiesFileStream, crlfDelay: Infinity });

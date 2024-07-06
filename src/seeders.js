@@ -7,7 +7,7 @@ import { generateCompany, getGenerator, getLeadGenerator } from "./generators.js
 export function getCompanySeeder(amount) {
     return new Promise((res, rej) => {
         const companyFileStream = fs.
-            createWriteStream('./data/company.txt', { flags: 'w' });
+            createWriteStream('data/company.txt', { flags: 'w' });
 
         const companyGenerator = getGenerator(generateCompany, amount)
 
@@ -20,7 +20,7 @@ export function getCompanySeeder(amount) {
 
 export function getLeadSeeder(amount) {
     return new Promise((res, rej) => {
-        const leadFileStream = fs.createWriteStream('./data/lead.txt', { flags: 'w', highWaterMark: HWM.MID });
+        const leadFileStream = fs.createWriteStream('data/lead.txt', { flags: 'w', highWaterMark: HWM.MID });
         const leadGenerator = getLeadGenerator(amount)
         const companies = getCompanyReader()
 

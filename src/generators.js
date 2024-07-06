@@ -60,6 +60,10 @@ export function generateUser() {
 }
 
 export function generateLead(companyId) {
+    const now = new Date();
+    const lastYear = now;
+    lastYear.setFullYear(lastYear.getFullYear() - 1);
+
     return {
         id: faker.string.uuid(),
         companyId: companyId ?? faker.string.uuid(),
@@ -74,7 +78,9 @@ export function generateLead(companyId) {
             city: faker.location.city(),
             country: faker.location.country()
         },
-        status: faker.helpers.arrayElement(['New', 'Contacted', 'Qualified', 'Lost'])
+        status: faker.helpers.arrayElement(['New', 'Contacted', 'Qualified', 'Lost']),
+        value: faker.number.int({ min: 1000, max: 1000000 }),
+        lastContactAt: faker.date.between({ from: lastYear, to: now })
     };
 }
 
